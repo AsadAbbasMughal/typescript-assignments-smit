@@ -239,3 +239,122 @@
 // const myRectangle = new Rectangle("Blue", 4, 6);
 // console.log(`Rectangle Color: ${myRectangle.getColor()}`);  
 // console.log(`Rectangle Area: ${myRectangle.calculateArea()}`)
+
+// ------------------------ Qno : 06 -------------------------------
+
+// Question 6: Types and Interfaces - Creating and Using Interfaces
+// Create an interface called Product with the following properties: id (number),
+// name (string), price (number), and category (string). Then, create a function
+// createProduct that accepts an object of type Product and returns it. Finally,
+// create a new product object and pass it to createProduct().
+// ------------------------ Ans : 06 -------------------------------
+
+// interface Product {
+//     id: number,
+//     name: string,
+//     price: number,
+//     category: string
+
+// }
+
+// function createProduct (obj: Product): Product{
+//     return obj;
+
+// }
+
+// let newProduct: Product = {
+//     id: 101,
+//     name: "Ali",
+//     price: 1000,
+//     category: "frontend"
+// }
+
+// let result = createProduct(newProduct)
+// console.log(result);
+
+
+
+// ------------------------ Qno : 07 -------------------------------
+
+// Question 7: Class Inheritance - Extending a Base Class
+// Create a base class Employee with name (string), salary (number), and a
+// method getDetails() that returns the employee&#39;s name and salary. Then, create
+// two subclasses: Developer with an additional property programmingLanguage
+// (string) and an overridden getDetails() method, and Designer with an additional
+// property toolUsed (string) and an overridden getDetails() method. Create
+// instances of both classes and call getDetails() on each.
+
+
+// ------------------------ Ans : 07 -------------------------------
+// class Employee  {
+//     name: string;
+//     salary: number;
+
+//     constructor(name: string, salary: number){
+//         this.name = name;
+//         this.salary = salary
+//     }
+//     getDetails(){
+//         return `Name: ${this.name} - Salary ${this.salary}`
+
+//     }
+// }
+
+// class Developer extends Employee {
+//     programmingLanguage: string;
+
+//     constructor(name: string, salary: number, programmingLanguage: string){
+//         super(name , salary)
+//         this.programmingLanguage = programmingLanguage;
+//     }
+
+//     getDetails(){
+//         return ` ${super.getDetails()} - Salary ${this.salary} - Programming Language ${this.programmingLanguage}`
+
+//     }
+
+// }
+
+// class Designer extends Employee {
+//     toolUsed: string;
+
+//     constructor(name: string, salary: number, toolUsed: string){
+//         super(name , salary)
+//         this.toolUsed= toolUsed;
+//     }
+
+//     getDetails(){
+//         return ` ${super.getDetails()} - Salary ${this.salary} - toolUsed ${this.toolUsed}`
+
+//     }
+
+// }
+
+// const myDev = new Developer('Ahmed', 10000, "JS")
+// console.log(myDev.getDetails());
+
+// const myDes = new Designer('Ahmed', 10000, "JooS")
+// console.log(myDes.getDetails());
+
+
+
+
+
+
+// ------------------------ Qno : 08 -------------------------------
+
+// Question 8: Access Modifiers - Using Private, Protected, and Readonly
+// Create a class Student with a public property name (string), a private property
+// grades (array of numbers), a protected property school (string), and a readonly
+// property studentID (number) that is initialized in the constructor. Implement
+// methods to add a grade to the grades array and get the average grade. Try
+// accessing the properties from inside and outside the class to test access
+// modifiers.
+
+
+// ------------------------ Ans : 08 -------------------------------
+
+
+
+
+
