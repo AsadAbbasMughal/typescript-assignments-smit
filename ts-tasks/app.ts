@@ -350,9 +350,317 @@
 // methods to add a grade to the grades array and get the average grade. Try
 // accessing the properties from inside and outside the class to test access
 // modifiers.
-
-
 // ------------------------ Ans : 08 -------------------------------
+
+// class Student {
+//     name: string;
+//     private grades: number[] = [];
+//     protected school: string;
+//     readonly studentId: number
+
+//     constructor(name: string, studentId:number, school: string ){
+//         this.name = name;
+//         // this.grades = grades;
+//         this.school = school;
+//         this.studentId = studentId
+//     }
+//     set getGrades(grade: number){
+//         this.grades.push(grade)
+//     }
+//     get getGrades() : number[] {
+//         return this.grades
+//     }
+
+//     addGrade(grade: number): void{
+//        this.grades.push(grade)
+//     }
+//     getAvgGrade(): number{
+//        if(this.grades.length === 0) return 0;
+//        const sum = this.grades.reduce((acc, val) => acc + val, 0);
+//        return sum/this.grades.length;
+//     }
+// }
+
+
+// const student1 = new Student("Asad Abbas", 101, "BBSUL");
+
+// console.log(student1.getGrades);
+// student1.studentId = 87 error because this readonly
+// console.log(student1.school); error because Property 'school' is protected
+
+
+
+// student1.addGrade(90);
+// student1.addGrade(85);
+// console.log(student1.getAvgGrade());
+
+// ------------------------ Qno : 09 -------------------------------
+
+// Question 9: Union Types and Type Guards
+// Create a type Response that can be either { success: true, data: string } or {
+// success: false, error: string }. Then, write a function handleResponse that takes
+// an argument of type Response and logs &quot;Data received: {data}&quot; if success is
+// true, and logs &quot;Error occurred: {error}&quot; if success is false. Use type guards to differentiate between the two cases.
+
+// ------------------------ Ans : 09 -------------------------------
+
+// type Responsed =
+//  { success: true, data: string} 
+//  | { success: false, error: string}
+
+// function handleResponse (res: Responsed){
+//     if(res.success){
+//         console.log('Data', res.data);
+        
+//     }else{
+//         console.log('Error', res.error);
+        
+//     }
+// }
+// const succ = handleResponse(
+//     {
+//         success: true,
+//         data: 'user data loaded!!'
+//     }
+// )
+
+// const err = handleResponse(
+//     {
+//         success: false,
+//         error: 'failed to data loaded!!'
+//     }
+// )
+
+// ------------------------Qno : 10 -------------------------------
+
+// Question 10: Abstract Classes - Creating and Extending
+// Create an abstract class Animal with a protected property species (string), a
+// constructor that sets the species, an abstract method makeSound() that returns a
+// string, and a concrete method getSpecies() that returns the species. Then, create
+// two classes: Dog with a makeSound() method that returns &quot;Woof!&quot;, and Cat with
+// a makeSound() method that returns &quot;Meow!&quot;. Create instances of both classes,
+// call makeSound(), and getSpecies().
+
+// ------------------------ Ans : 10 -------------------------------
+
+// abstract class Animal {
+//     protected species: string
+
+//     constructor(species : string){
+//         this.species = species
+//     }
+//     abstract makeSound(): string
+     
+//     getSpecies(){
+//         return this.species
+//     }
+     
+// }
+
+// class Dog extends Animal{
+
+//     constructor(){
+//         super("dog")
+//     }
+//     makeSound(): string {
+//         return 'Woof'
+//     }
+// }
+
+// class Cat extends Animal{
+
+//     constructor(){
+//         super("Cat")
+//     }
+//     makeSound(): string {
+//         return 'Meow'
+//     }
+// }
+
+// const myDog = new Dog()
+// const myCat = new Cat()
+
+// console.log(myDog.makeSound());
+// console.log(myDog.getSpecies());
+
+// console.log(myCat.getSpecies());
+// console.log(myCat.makeSound());
+
+
+// ------------------------ Qno : 11 -------------------------------
+
+// Question 11: Generics - Creating a Generic Function with Index Search
+// Create a generic function findIndex&lt;T&gt;(arr: T[], value: T): number that takes an
+// array of any type and a value to search for. The function should return the index
+// of the value if found; otherwise, return -1. Call this function with different types of
+// arrays (e.g., an array of numbers, an array of strings) and log the results..
+
+// ------------------------ Ans : 11 -------------------------------
+
+// function findIndex <T>(arr: T[], value:T): number{
+//     return arr.indexOf(value)
+// }
+
+// // Example with an array of numbers
+// const numberArray = [10, 20, 30, 40, 50];
+// console.log(findIndex(numberArray, 30));
+// console.log(findIndex(numberArray, 100)); 
+
+// // Example with an array of strings
+// const stringArray = ["apple", "banana", "cherry"];
+// console.log(findIndex(stringArray, "banana")); 
+// console.log(findIndex(stringArray, "grape")); 
+
+// // Example with an array of boolean values
+// const boolArray = [true, false, true];
+// console.log(findIndex(boolArray, false)); 
+// console.log(findIndex(boolArray, true));
+
+// ------------------------Qno : 12 -------------------------------
+
+// Question 12: Type Guards - Checking Object Types
+// Create two interfaces: Car with a property drive() that returns &quot;Driving a car!&quot; and Bike with a property ride() that returns &quot;Riding a bike!&quot;. Then, create a function useVehicle(vehicle: Car | Bike) that calls drive() if it&#39;s a Car and calls ride() if it&#39;s a Bike, using a type guard to differentiate between the two. Create instances of Car and Bike, and pass them to useVehicle().
+
+// ------------------------ Ans : 12 -------------------------------
+
+// interface Car {
+//     drive(): string
+// }
+
+// interface Bike {
+//     ride(): string
+// }
+
+// function useVehicle (vehcile: Car | Bike){
+//     if('drive' in vehcile){
+//        console.log(vehcile.drive());
+//     }else{
+//        console.log(vehcile.ride());
+//     }
+
+// }
+
+// const myCar: Car = {
+//     drive: () => "Car driving" 
+// }
+
+// const myBike: Bike = {
+//     ride: () => 
+//         `ride the bike`
+// }
+// useVehicle(myCar)
+// useVehicle(myBike)
+
+// ------------------------ Qno : 13 -------------------------------
+
+// Question 13: Interface Intersection - Merging Multiple Interfaces
+// Create two interfaces: Person with properties name (string) and age (number),
+// and Employee with property jobTitle (string). Then, create a new type
+// FullTimeEmployee that combines both interfaces using intersection (&amp;). Write a
+// function describeEmployee(emp: FullTimeEmployee) that logs the name, age,
+// and jobTitle. Create a FullTimeEmployee object and pass it to the function.
+
+// ------------------------ Ans : 13 -------------------------------
+
+// interface Person {
+//     name: string
+//     age: number
+// }
+// interface Employee {
+//     jobTitle: string
+
+// }
+// type FullTimeEmployee = Person & Employee;
+
+// function describeEmployee (emp: FullTimeEmployee){
+//     return ` Name: ${emp.name}, Age:${ emp.age}, Job Title: ${emp.jobTitle}`
+
+// }
+
+// const obj = {
+//     name : ' Asad Abbas',
+//     age : 20,
+//     jobTitle: 'frontend developer'
+// }
+
+// console.log(describeEmployee(obj));
+
+// ------------------------ Qno : 14 -------------------------------
+
+// Question 14: Interface Union - Handling Multiple Object Types
+// Create two interfaces: Dog with a method bark() returning &quot;Woof!&quot;, and Cat with a method meow() returning &quot;Meow!&quot;. Then, create a type Pet that can be either a Dog or a Cat. Write a function makeSound(pet: Pet) that calls bark() if it&#39;s a Dog and calls meow() if it&#39;s a Cat, using a type guard to determine the correct method. Create instances of Dog and Cat, and call makeSound() on both.
+// ------------------------ Ans : 14 -------------------------------
+
+// interface Dog{
+//     bark(): string
+// }
+
+// interface Cat {
+//     meow(): string
+// }
+// type Pet = Dog | Cat;
+
+// function makeSound (pet : Pet){
+//     if('bark' in pet){
+//         console.log(pet.bark());
+        
+//     }else{
+        
+//         console.log(pet.meow());
+//     }
+
+// }
+
+// const myDog : Dog= {
+//     bark : ()=>'Woof'
+// }
+// const myCat : Cat= {
+//     meow : ()=>'Meow'
+// }
+
+// makeSound(myDog)
+// makeSound(myCat)
+
+// ------------------------ Qno : 15 -------------------------------
+
+// Question 15: Implementing an Interface in a Class
+// Create an interface Shape with a method calculateArea(): number and a method
+// getType(): string. Then, create a class Circle that implements Shape with a
+// property radius (number), implements calculateArea() to return the area of the
+// circle, and implements getType() to return &quot;Circle&quot;. Create an instance of Circle,set the radius, and call both methods.
+
+// ------------------------ Ans : 15 -------------------------------
+
+// interface Shape {
+//     calculateArea() : number;
+//     getType () : string
+
+// }
+
+
+// class Circle implements Shape{
+//     radius : number;
+
+//     constructor(radius: number) {
+//         this.radius = radius;
+//     }
+
+//     calculateArea(): number {
+//         return Math.PI * this.radius * this.radius
+//     }
+
+//     getType(): string {
+//         return 'circle'
+//     }
+// }
+
+// const myCircle = new Circle(5)
+// console.log(myCircle.getType());
+// console.log(myCircle.calculateArea());
+
+
+
+
 
 
 
